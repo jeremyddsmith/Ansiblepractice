@@ -1,0 +1,32 @@
+---
+- name: My first playbook
+  hosts: tags_Name_jddansible
+  hosts: tags_Name_jdworker
+  gather_facts: true
+  become: true
+  vars_files:
+    - "vars.yaml"
+  
+  tasks:
+    - debug: msg="my boot image is {{ ansible_cmdline.BOOT_IMAGE }}"
+    - name: install the latest version of apache
+      yum:
+        name: httpd
+        state: latest
+    - name: start service httpd, if not started
+      service:
+        name: httpd
+        state: started
+        enabled: true
+    - name: change default index file #ansible localhost -m file -a "path=/var/www/html/index.html state=absent"
+      file: 
+        path: /var/www/html/index.html
+        state: absent
+    - name: add index file
+      file:
+        path: /var/www/html/index.html
+        state: touch
+    - name: add text to index file
+      lineinfile:
+        path: /var/www/html/index.html
+        line: <h1> Welcome to Jeremy's Website! </h1>
