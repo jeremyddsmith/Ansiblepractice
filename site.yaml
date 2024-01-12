@@ -1,6 +1,6 @@
 ---
 - name: Create Nodes and Bucket
-  hosts: tags_Name_j*
+  hosts: tags_Name_jd*
   gather_facts: true
   become: true
   vars_files:
