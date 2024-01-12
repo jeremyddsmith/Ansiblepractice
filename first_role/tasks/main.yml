@@ -7,4 +7,4 @@
 - name: add text to index file
   lineinfile:
     path: /var/www/html/test.txt
-    line: "{{ line }}"
+    line: <h1> Welcome to Jeremys website! <h1>
