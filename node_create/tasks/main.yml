@@ -11,7 +11,7 @@
         - botocore
     - name: create ec2 instances
       ec2_instance: 
-        name: worker-nodes
+        name: jd-worker-nodes
         region: us-east-1
         security_group: default
         vpc_subnet_id: subnet-07b880eda7c2cfd9f
@@ -25,9 +25,9 @@
           assign_public_ip: true
         state: present
         tags:
-          name: jdworker2
+          name: jdansible
       register: ec2
-      tags: jdworker2
+      tags: jdansible
 
     - name: wait for ssh to be ready
       local_action:
