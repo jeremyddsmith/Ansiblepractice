@@ -7,4 +7,8 @@
     - "vars.yaml"
 
   roles:
+    - first_role
+    - second_role
+    - node_create
+    - bucket_create
     - send_logs
